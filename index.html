@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Percentage Calculator</title>
+</head>
+
+
+<body onload="refreshPage()">
+<div class="jumbotron" id="title">
+    <h4>Percentage Calculator</h4>
+</div>
+
+
+<div class="container">
+    <div class="row" id="mainContent">
+
+        <div class="col" >
+
+            <label>Enter the new quantity : <input type="text" name="Qty" id="newQty" size=10 maxlength="6"></label></br>
+            <label>Enter the Total amount for the product : <input type="text" name="Total" id="totalCount" size=10 maxlength="6"> </label>
+        </br>
+            <input type="button" id="newPercent" value="Calculate" onclick="getPercent()"/> <input type="button" id="clearIt" value="Clear" onclick="refreshPage()"/>
+        </br>
+        <p id = "showAnswer"></p>
+        </div>
+    </div>
+        <div class="row"id="mainContent">
+                
+        </div>
+    
+</div>
+<hr>
+</body>
+
+
+
+<style>
+#mainContent{
+    text-align: center;
+    margin:20px;
+    padding:20px;
+}
+
+
+p{
+    font-size: 35px;
+
+}
+
+#title{
+font-family: Arial, Helvetica, sans-serif;
+background-color: black;
+color:white;
+border-radius: 90px;
+width: 75%;
+margin: 10px auto auto auto;
+
+text-align: center;
+}
+
+#newPercent{
+    background-color: black;
+    color:white;
+}
+
+</style>
+
+
+
+<script>
+    var qty = document.getElementById("newQty");
+    var count = document.getElementById("totalCount");
+    var answer = document.getElementById("showAnswer");
+
+    function getPercent(){
+    var newPercentage = Math.round((qty.value/count.value)*100).toFixed(2);
+    answer.innerHTML = "The percentage is : " + newPercentage.toString() + "%";
+    }
+
+    function refreshPage(){
+        count.value = "";
+        qty.value = "";
+        answer.innerHTML = "";
+        qty.focus();
+    }
+
+
+</script>
+</html>
